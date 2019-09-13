@@ -82,8 +82,7 @@ def another_game():
         another_game = input('Press enter for another game. Press "stop" to finish')
         if another_game == 'stop':
             print ("We're done for now. See you soon")
-            break
-
+            exit(0)
         players(zug_or_pered(text), number(), random())
 
 players(zug_or_pered(text),number(),random())
