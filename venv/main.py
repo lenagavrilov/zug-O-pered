@@ -39,7 +39,7 @@ def zugi_or_no(num, comp):   #3
        # print(False)
         return False
 
-def players (text,num,comp):
+def players (text,num,comp): # bjkykjkyhj
     players = {}
     if text == 'zug':
         players.update({'zug': num})
