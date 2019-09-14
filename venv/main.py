@@ -39,11 +39,11 @@ def zugi_or_no(num, comp):   #3
        # print(False)
         return False
 
-def players (text,num,comp):
+"""def players (text,num,comp):
     if text == 'zug':
         do_if_zug(text,num,comp)
     else:
-        do_if_pered(text,num,comp)
+        do_if_pered(text,num,comp)"""
 
 def do_if_zug(text,num,comp):
     players = {}
