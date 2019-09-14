@@ -43,7 +43,7 @@ def zugi_or_no(num, comp):   #3
     if text == 'zug':
         do_if_zug(text,num,comp)
     else:
-        do_if_pered(text,num,comp)"""
+        do_if_pered(text,num,comp)
 
 def do_if_zug(text,num,comp):
     players = {}
@@ -59,7 +59,7 @@ def do_if_pered(text,num,comp):
     players.update({"zug": comp})
     who_is_who(text)
     print(players)
-    return players
+    return players"""
 
 def who_is_who(text):
     who_is_who = {}
