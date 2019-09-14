@@ -7,7 +7,7 @@ def number():
     else:
         print (num + " is not a number")
         print("No number - no game! We'll start over!")
-        players(zug_or_pered(text), number(), random())
+        result(zug_or_pered(text), number(), random())
         #number()
         #אם אני נכנסת לelse, אז כאשר כן בוחרים מספר vתוכנה עושה שגיאה
 
@@ -19,7 +19,7 @@ def zug_or_pered(text):
         return str(text)
     else:
         print ("You can type'zug' or 'pered' only. Lets try again")
-        players(zug_or_pered(text),number(),random())
+        result(zug_or_pered(text),number(),random())
 
 from random import *
 def random ():
@@ -39,53 +39,60 @@ def zugi_or_no(num, comp):   #3
        # print(False)
         return False
 
-def players (text,num,comp): # bjkykjkyhj
-    players = {}
+def players (text,num,comp):
     if text == 'zug':
-        players.update({'zug': num})
-        players.update({"pered": comp})
-        print (players)
+        do_if_zug(text,num,comp)
     else:
-        if text == "pered":
-            players.update({'pered':num})
-            players.update({"zug": comp})
-            print (players)
+        do_if_pered(text,num,comp)
 
-    x = zugi_or_no(num, comp)
-    for each in players.keys():
-        if (each == 'zug' and x == True) or (each == 'pered' and x== False):
-            for value in players.values():
-                if value == num:
-                    print('You won!')
-                    break
-                else:
-                    print('Computer won')
-                    break
-                break
-            break
+def do_if_zug(text,num,comp):
+    players = {}
+    players.update({'zug': num})
+    players.update({"pered": comp})
+    print(players)
+    who_is_who(text)
+    return players
 
-        else:
-            if (each == 'pered' and x == True) or (each == 'zug' and x== False):
-                for value in players.values():
-                    if value == num:
-                        print('Computer won!')
-                        break
-                    else:
-                        print('You won')
-                        break
-                    break
-                break
+def do_if_pered(text,num,comp):
+    players = {}
+    players.update({'pered': num})
+    players.update({"zug": comp})
+    who_is_who(text)
+    print(players)
+    return players
+
+def who_is_who(text):
+    who_is_who = {}
+    if text == 'zug':
+        who_is_who.update({'player': 'zug'})
+        who_is_who.update({'comp': 'pered'})
+    else:
+        who_is_who.update({'player': 'pered'})
+        who_is_who.update({'comp': 'zug'})
+    print(who_is_who)
+    return who_is_who
+
+
+def result(text,num,comp):
+    sum_is_zugi = zugi_or_no(num,comp)
+    #print(sum_is_zugi)
+    if sum_is_zugi == True and who_is_who(text)['player']=='zug' or \
+       sum_is_zugi == False and who_is_who(text)['player']=='pered':
+        print('You won!')
+    else:
+        print('You lose!')
     another_game()
 
 def another_game():
     while True:
         another_game = input('Press enter for another game. Press "stop" to finish')
         if another_game == 'stop':
-            print ("We're done for now. See you soon")
+            print ("We're done for now. See you soon :)")
             exit(0)
-        players(zug_or_pered(text), number(), random())
+        result(zug_or_pered(text), number(), random())
 
-players(zug_or_pered(text),number(),random())
+#players(zug_or_pered(text),number(),random())
+result(zug_or_pered(text),number(),random())
 
 
 
