@@ -89,10 +89,8 @@ def another_game():
         if another_game == 'stop':
             print ("We're done for now. See you soon :)")
             exit(0)
-        result(zug_or_pered(text), number(), random())
-
-#players(zug_or_pered(text),number(),random())
-result(zug_or_pered(text),number(),random())
+        result(zug_or_pered(text), number(), random()) # asd
+ 
 
 
 
